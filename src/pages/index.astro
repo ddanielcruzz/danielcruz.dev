@@ -1,0 +1,190 @@
+---
+const internalLinks = [
+  { link: "#about", name: "About" },
+  { link: "#work", name: "Work" },
+];
+
+const workLinks = [
+  {
+    link: "",
+    name: "Luxor Tech / OrdinalHub",
+    description: "Building Bitcoin mining related products and services",
+    time: "2021 - Present",
+  },
+  {
+    link: "",
+    name: "Freelance",
+    description:
+      "Collaborating on a video calling platform and later on a fintech",
+    time: "2020 - 2021",
+  },
+  {
+    link: "",
+    name: "Design + Code",
+    description:
+      "Aiding in the task of teaching designers to code and coders to design",
+    time: "2019 - 2020",
+  },
+  {
+    link: "",
+    name: "Axend",
+    description: "Creating fintech solutions for the Mexican market",
+    time: "2018 -2019",
+  },
+];
+const openSourceContributions = [
+  {
+    link: "https://github.com/withfig/autocomplete/pulls?q=is%3Apr+is%3Amerged+author%3Addanielcruzz+",
+    name: "Fig",
+    iconPath: "/fig-logo.svg",
+    iconAlt: "Fig logo",
+  },
+  {
+    link: "https://github.com/solidjs/solid-docs-next/pulls?q=is%3Apr+is%3Amerged+author%3Addanielcruzz",
+    name: "Solid.js",
+    iconPath: "/solidjs-logo.svg",
+    iconAlt: "Solid.js logo",
+  },
+  {
+    link: "https://github.com/trpc/trpc/pulls?q=is%3Apr+is%3Amerged+author%3Addanielcruzz+",
+    name: "tRPC",
+    iconPath: "/trpc-logo.svg",
+    iconAlt: "tRPC logo",
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Daniel Cruz | Software Developer</title>
+  </head>
+  <body
+    class="min-h-screen bg-neutral-900 text-neutral-300 max-w-max mx-auto flex"
+  >
+    <main class="w-[90%] mx-auto sm:w-[55ch] py-10">
+      <section class="mb-6">
+        <h1 class="text-3xl font-medium">Daniel Cruz</h1>
+        <h2 class="text-lg text-neutral-300/60">Software Developer</h2>
+      </section>
+      <section class="flex flex-col gap-y-10">
+        <section class="relative">
+          <h3
+            class="sm:text-right sm:text-base sm:mb-0 sm:absolute sm:-left-8 transform sm:-translate-x-full text-neutral-100/50 text-xl mb-4"
+          >
+            About
+          </h3>
+          <section class="flex flex-col gap-y-4">
+            <p>
+              I'm Daniel Cruz, as software developer with <span data-yoe></span>
+              years of experience. My work spans across both the front end and the
+              back end.
+            </p>
+            <p>
+              I take pride in delivering polished software that I know users
+              will enjoy interacting with.
+              <!-- Feel free to learn more about me
+              <a href="">here</a>. -->
+            </p>
+          </section>
+        </section>
+
+        <section class="relative">
+          <h3
+            class="sm:text-right sm:text-base sm:mb-0 sm:absolute sm:-left-8 transform sm:-translate-x-full text-neutral-100/50 text-xl mb-4"
+          >
+            Work
+          </h3>
+          <ul class="grow flex flex-col gap-y-4">
+            {
+              workLinks.map(({ name, time, description }) => (
+                <li>
+                  <article class="bg-gradient-to-bl from-neutral-800 to-neutral-900 outline outline-white/10 p-6  inline-block w-full rounded-md">
+                    <section class="flex items-start justify-between">
+                      <section class="flex flex-col gap-y-2">
+                        <p class="font-medium text-lg">{name}</p>
+                        <p class="font-normal text-neutral-300/60">
+                          {description}
+                        </p>
+                      </section>
+                      <p class="shrink-0 text-sm text-neutral-300/40">{time}</p>
+                    </section>
+                  </article>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section class="relative">
+          <div
+            class="sm:text-right sm:text-base sm:mb-0 sm:absolute sm:-left-8 transform sm:-translate-x-full sm:block text-neutral-100/50 text-xl mb-4 flex gap-x-1"
+          >
+            <h3>Open Source</h3>
+            <h3>Contributions</h3>
+          </div>
+          <ul class="grow flex flex-col gap-y-4">
+            {
+              openSourceContributions.map(
+                ({ name, iconPath, iconAlt, link }) => (
+                  <li class="">
+                    <article class="bg-gradient-to-bl from-neutral-800 to-neutral-900 outline outline-white/10 p-6  inline-block w-full rounded-md">
+                      <section class="flex items-center justify-between">
+                        <section class="flex gap-x-4">
+                          <img
+                            width="28"
+                            height="28"
+                            src={iconPath}
+                            alt={iconAlt}
+                          />
+                          <p class="font-medium text-lg">{name}</p>
+                        </section>
+                        <a
+                          href={link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-5 h-5"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                            />
+                          </svg>
+                        </a>
+                      </section>
+                    </article>
+                  </li>
+                )
+              )
+            }
+          </ul>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const startYear = 2018;
+    const currentYear = new Date().getFullYear();
+    const yoeEl = document.querySelector("[data-yoe]");
+    if (yoeEl) {
+      yoeEl.textContent = String(currentYear - startYear);
+    }
+  });
+</script>
