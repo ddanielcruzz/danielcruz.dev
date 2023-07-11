@@ -54,6 +54,61 @@ const openSourceContributions = [
 ];
 ---
 
+<style>
+  @keyframes bg-animation {
+    0% {
+      transform: translateY(-50%) scale(0.5);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(0%) scale(1);
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes main-animation {
+    0% {
+      filter: blur(5px);
+      opacity: 0.2;
+    }
+    100% {
+      filter: blur(0px);
+    }
+  }
+  .bg-gradient {
+    position: absolute;
+    height: 450px;
+    background: radial-gradient(
+        450px 450px at 40% 100%,
+        #171717 100px,
+        transparent 90%
+      ),
+      radial-gradient(450px 450px at 85% 0%, #171717 100px, transparent 90%),
+      radial-gradient(
+        at 49% 10%,
+        hsla(165, 100%, 50%, 0.2) 0px,
+        transparent 65%
+      );
+    left: 0;
+    margin: 0 calc(-30vw + 50%);
+    animation: bg-animation 500ms 500ms ease-in-out both;
+  }
+  .main {
+    animation: main-animation 1s cubic-bezier(0.25, 1, 0.5, 1) backwards;
+  }
+
+  @media (prefers-reduced-motion) {
+    .bg-gradient {
+      animation: none;
+    }
+    .main {
+      animation: none;
+    }
+  }
+</style>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -66,9 +121,11 @@ const openSourceContributions = [
     <title>Daniel Cruz | Software Developer</title>
   </head>
   <body
-    class="min-h-screen bg-neutral-900 text-neutral-300 max-w-max mx-auto flex"
+    class="min-h-screen bg-neutral-900 text-neutral-300 max-w-max mx-auto flex relative overflow-x-hidden"
   >
-    <main class="w-[90%] mx-auto sm:w-[55ch] py-10">
+    <!-- <div class="w-screen" style="position:absolute;height:200px;background:radial-gradient(at 50% -50%, hsla(165, 100%, 50%, 0.5) 0px, transparent 60%),radial-gradient(at 30% 30%, hsla(165, 100%, 50%, 0.5) 10px, transparent 30%);left:0;"></div> -->
+    <div class="bg-gradient w-screen z-0"></div>
+    <main class="w-[90%] mx-auto sm:w-[55ch] py-10 relative z-10 main">
       <section class="mb-6">
         <h1 class="text-3xl font-medium">Daniel Cruz</h1>
         <h2 class="text-lg text-neutral-300/60">Software Developer</h2>
