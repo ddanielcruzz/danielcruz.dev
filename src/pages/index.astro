@@ -5,11 +5,12 @@ const internalLinks = [
 ];
 
 const workLinks = [
+  {link: "", name: "Pydantic", description: "Making developers life easier by providing top-notch tools", time: "2023 - Present"},
   {
     link: "",
     name: "Luxor Tech / OrdinalHub",
     description: "Building Bitcoin mining related products and services",
-    time: "2021 - Present",
+    time: "2021 - 2023",
   },
   {
     link: "",
@@ -89,6 +90,38 @@ const openSourceContributions = [
       filter: blur(0px);
     }
   }
+
+  .spotlight {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .spotlight::before,
+  .spotlight::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .spotlight::before {
+    background: radial-gradient(
+      circle at var(--x) var(--y),
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 15%,
+      rgba(255, 255, 255, 0) 50%
+    );
+  }
+
+  
+
+  .spotlight:hover::before,
+  .spotlight:hover::after {
+    opacity: 1;
+  }
+
   .bg-gradient {
     position: absolute;
     height: 450px;
@@ -207,7 +240,7 @@ const openSourceContributions = [
               {
                 workLinks.map(({ name, time, description }) => (
                   <li>
-                    <article class="bg-gradient-to-bl from-neutral-800 to-neutral-900 outline outline-white/10 p-6  inline-block w-full rounded-md">
+                    <article class="bg-gradient-to-bl from-neutral-800 to-neutral-900 outline outline-white/10 p-6  inline-block w-full rounded-md spotlight">
                       <section class="flex items-start justify-between">
                         <section class="flex flex-col gap-y-2">
                           <p class="font-medium text-lg">{name}</p>
@@ -238,7 +271,7 @@ const openSourceContributions = [
                 openSourceContributions.map(
                   ({ name, iconPath, iconAlt, link }) => (
                     <li class="">
-                      <article class="bg-gradient-to-bl from-neutral-800 to-neutral-900 outline outline-white/10 p-6  inline-block w-full rounded-md">
+                      <article class="bg-gradient-to-bl from-neutral-800 to-neutral-900 outline outline-white/10 p-6  inline-block w-full rounded-md spotlight">
                         <section class="flex items-center justify-between">
                           <section class="flex gap-x-4">
                             <img
@@ -253,6 +286,8 @@ const openSourceContributions = [
                             href={link}
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label="View on GitHub"
+                            title="View on GitHub"
                           >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -292,4 +327,16 @@ const openSourceContributions = [
       yoeEl.textContent = String(currentYear - startYear);
     }
   });
+
+  const spotlights = document.querySelectorAll<HTMLElement>('.spotlight');
+
+  spotlights.forEach(spotlight => {
+      spotlight.addEventListener('mousemove', (e) => {
+        const rect = spotlight.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        spotlight.style.setProperty('--x', `${x}px`);
+        spotlight.style.setProperty('--y', `${y}px`);
+      });
+    });    
 </script>
